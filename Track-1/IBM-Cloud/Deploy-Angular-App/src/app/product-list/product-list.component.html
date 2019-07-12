@@ -1,0 +1,32 @@
+<h2>Products</h2>
+
+<!---->
+<div *ngFor="let product of products">
+
+  <h4>
+    
+    <a [title]="product.name + ' details'">
+      {{ product.name }},
+      ${{ product.price }}
+    </a>
+    
+  </h4>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+  <button (click)="share()">
+    Share
+  </button>
+
+  <app-product-alerts 
+  [product] = "product"
+  (notify) = "onNotify()">
+  </app-product-alerts>
+
+</div> <!--Interpolation here is used with {{ }}-->
+
+<!-- 
+  You can try to learn Angular by visiting: https://angular.io/start
+-->
